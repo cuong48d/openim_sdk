@@ -142,6 +142,11 @@ class IMManager {
               var list = Utils.toList(value, (map) => ReadReceiptInfo.fromJson(map));
               messageManager.msgListener.recvC2CReadReceipt(list);
               break;
+            case 'onRecvGroupReadReceipt':
+              var value = call.arguments['data']['groupMsgReceiptList'];
+              var list = Utils.toList(value, (map) => ReadReceiptInfo.fromJson(map));
+              messageManager.msgListener.recvGroupReadReceipt(list);
+              break;
             case 'onRecvNewMessage':
               var value = call.arguments['data']['message'];
               final msg = Utils.toObj(value, (map) => Message.fromJson(map));

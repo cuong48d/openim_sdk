@@ -310,6 +310,13 @@ public class AdvancedMsgListener: NSObject, Open_im_sdk_callbackOnAdvancedMsgLis
         values["msgReceiptList"] = msgReceiptList
         CommonUtil.emitEvent(channel: channel, method: "advancedMsgListener", type: "onRecvC2CReadReceipt", errCode: nil, errMsg: nil, data: values)
     }
+
+    public func onRecvGroupReadReceipt(_ groupMsgReceiptList: String?) {
+        var values: [String: Any] = [:]
+        values["id"] = id
+        values["groupMsgReceiptList"] = groupMsgReceiptList
+        CommonUtil.emitEvent(channel: channel, method: "advancedMsgListener", type: "onRecvGroupReadReceipt", errCode: nil, errMsg: nil, data: values)
+    }
     
     public func onRecvNewMessage(_ message: String?) {
         var values: [String: Any] = [:]
