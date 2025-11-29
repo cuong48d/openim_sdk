@@ -50,17 +50,17 @@ public class UserManager: BaseServiceManager {
 }
 
 public class UserListener: NSObject, Open_im_sdk_callbackOnUserListenerProtocol {
-    public func onUserCommandAdd(_ userCommand: String?) {
-        CommonUtil.emitEvent(channel: self.channel, method: "userListener", type: "onUserCommandAdd", errCode: nil, errMsg: nil, data: userCommand)
-    }
+    // public func onUserCommandAdd(_ userCommand: String?) {
+    //     CommonUtil.emitEvent(channel: self.channel, method: "userListener", type: "onUserCommandAdd", errCode: nil, errMsg: nil, data: userCommand)
+    // }
     
-    public func onUserCommandDelete(_ userCommand: String?) {
-        CommonUtil.emitEvent(channel: self.channel, method: "userListener", type: "onUserCommandDelete", errCode: nil, errMsg: nil, data: userCommand)
-    }
+    // public func onUserCommandDelete(_ userCommand: String?) {
+    //     CommonUtil.emitEvent(channel: self.channel, method: "userListener", type: "onUserCommandDelete", errCode: nil, errMsg: nil, data: userCommand)
+    // }
     
-    public func onUserCommandUpdate(_ userCommand: String?) {
-        CommonUtil.emitEvent(channel: self.channel, method: "userListener", type: "onUserCommandUpdate", errCode: nil, errMsg: nil, data: userCommand)
-    }
+    // public func onUserCommandUpdate(_ userCommand: String?) {
+    //     CommonUtil.emitEvent(channel: self.channel, method: "userListener", type: "onUserCommandUpdate", errCode: nil, errMsg: nil, data: userCommand)
+    // }
     
     
     private let channel:FlutterMethodChannel

@@ -312,10 +312,8 @@ public class AdvancedMsgListener: NSObject, Open_im_sdk_callbackOnAdvancedMsgLis
     }
 
     public func onRecvGroupReadReceipt(_ groupMsgReceiptList: String?) {
-        var values: [String: Any] = [:]
-        values["id"] = id
-        values["groupMsgReceiptList"] = groupMsgReceiptList
-        CommonUtil.emitEvent(channel: channel, method: "advancedMsgListener", type: "onRecvGroupReadReceipt", errCode: nil, errMsg: nil, data: values)
+        // Forward to Flutter
+        CommonUtil.emitEvent(channel: channel, method: "OnRecvGroupReadReceipt", type: "advancedMsgListener", errCode: nil, errMsg: nil, data: groupMsgReceiptList)
     }
     
     public func onRecvNewMessage(_ message: String?) {

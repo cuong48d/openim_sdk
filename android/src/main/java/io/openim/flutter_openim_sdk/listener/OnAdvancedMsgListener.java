@@ -36,11 +36,12 @@ public class OnAdvancedMsgListener implements open_im_sdk_callback.OnAdvancedMsg
         values.put("msgReceiptList", s);
         CommonUtil.emitEvent("advancedMsgListener", "onRecvC2CReadReceipt", values);
     }
-    
+
+    @Override
     public void onRecvGroupReadReceipt(String s) {
         final Map<String, String> values = new ArrayMap<>();
         values.put("id", id);
-        values.put("groupMsgReceiptList", s);
+        values.put("groupMsgReceiptList", s); 
         CommonUtil.emitEvent("advancedMsgListener", "onRecvGroupReadReceipt", values);
     }
 

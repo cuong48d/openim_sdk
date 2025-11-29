@@ -24,7 +24,7 @@ apply plugin: "com.android.library"
 android {
     namespace = "io.openim.flutter_openim_sdk"
 
-    compileSdk = 35
+    compileSdk = 36
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -36,7 +36,7 @@ android {
     }
 
     dependencies {
-        implementation 'io.openim:core-sdk:3.8.3-patch10@aar'
+        compileOnly files('libs/open_im_sdk-3.8.3.aar')
         testImplementation("junit:junit:4.13.2")
         testImplementation("org.mockito:mockito-core:5.0.0")
     }
