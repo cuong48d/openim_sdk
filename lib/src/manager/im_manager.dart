@@ -144,7 +144,8 @@ class IMManager {
               break;
             case 'onRecvGroupReadReceipt':
               var value = call.arguments['data']['groupMsgReceiptList'];
-              var list = Utils.toList(value, (map) => ReadReceiptInfo.fromJson(map));
+              var list = Utils.toObj(
+                  value, (map) => GroupMessageReceipt.fromJson(map));
               messageManager.msgListener.recvGroupReadReceipt(list);
               break;
             case 'onRecvNewMessage':

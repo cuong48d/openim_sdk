@@ -5,7 +5,7 @@ class OnAdvancedMsgListener {
   Function(Message msg)? onMsgDeleted;
   Function(RevokedInfo info)? onNewRecvMessageRevoked;
   Function(List<ReadReceiptInfo> list)? onRecvC2CReadReceipt;
-  Function(List<ReadReceiptInfo> list)? onRecvGroupReadReceipt;
+  Function(GroupMessageReceipt receipt)? onRecvGroupReadReceipt;
   Function(Message msg)? onRecvNewMessage;
   Function(Message msg)? onRecvOfflineNewMessage;
   Function(Message msg)? onRecvOnlineOnlyMessage;
@@ -38,8 +38,8 @@ class OnAdvancedMsgListener {
   }
 
   /// Group Message Read Receipt
-  void recvGroupReadReceipt(List<ReadReceiptInfo> list) {
-    onRecvGroupReadReceipt?.call(list);
+  void recvGroupReadReceipt(GroupMessageReceipt receipt) {
+    onRecvGroupReadReceipt?.call(receipt);
   }
 
   /// Received a new message
