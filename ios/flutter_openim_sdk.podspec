@@ -17,11 +17,14 @@ A new Flutter project.
   s.dependency 'Flutter'
   s.platform = :ios, '11.0'
 
-  s.dependency 'OpenIMSDKCore','3.8.3-hotfix.10'
+  # s.dependency 'OpenIMSDKCore','3.8.3-hotfix.10'
+
+  # Ensure your file is at: packages/openim_sdk/ios/Frameworks/OpenIMCore.xcframework
+  s.vendored_frameworks = 'Frameworks/OpenIMCore.xcframework'
+  
   s.static_framework = true
   s.library = 'resolv'
 
-  # s.vendored_frameworks = 'Framework/*.xcframework'
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386 arm64' }
   s.swift_version = '5.0'
