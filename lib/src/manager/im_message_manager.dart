@@ -690,6 +690,45 @@ class MessageManager {
               }))
           .then((value) => Utils.toObj(value, (map) => Message.fromJson(map)));
 
+   /// Group chat gets read list
+  /// [filter] 0: readed 1: unread
+  Future<List<GroupMembersInfo>> getGroupMessageReaderList(
+    String conversationID,
+    String clientMsgID, {
+    int filter = 0,
+    int offset = 0,
+    int count = 20,
+    String? operationID,
+  }) {
+    return _channel
+        .invokeMethod(
+            'getGroupMessageReaderList',
+            _buildParam({
+              'conversationID': conversationID,
+              'clientMsgID': clientMsgID,
+              'filter': filter,
+              'offset': offset,
+              'count': count,
+              'operationID': Utils.checkOperationID(operationID),
+            }))
+        .then((value) => Utils.toList(value, (map) => GroupMembersInfo.fromJson(map)));
+  }
+
+  /// Group chat sends read receipt
+  Future sendGroupMessageReadReceipt(
+    String conversationID,
+    List<String> clientMsgIDs, {
+    String? operationID,
+  }) {
+    return _channel.invokeMethod(
+        'sendGroupMessageReadReceipt',
+        _buildParam({
+          'conversationID': conversationID,
+          'clientMsgIDs': clientMsgIDs,
+          'operationID': Utils.checkOperationID(operationID),
+        }));
+  }
+  
   /// Create an image message by URL
   Future<Message> createImageMessageByURL({
     required PictureInfo sourcePicture,
